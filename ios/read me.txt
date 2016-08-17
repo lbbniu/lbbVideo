@@ -1,0 +1,9 @@
+ios文件夹说明：
+
+	lbbVideoStatic：静态库工程，最低版本支持6.0，模块必须支持armv7、arm64架构，参考工程设置
+
+	lbbVideo：模块包压缩之前文件夹，target目录下的文件都会被加入工程，res_moduleDemo文件夹会以Create folder references方式加入工程，读取资源文件时需要注意
+
+	lbbVideo.zip：将moduleDemo文件夹压缩后的模块包，可以上传云端使用
+
+	lbbVideoProject测试工程，可以将开发的模块及资源文件引入工程进行测试
