@@ -1,2 +1,4 @@
-widget
+widget/*
+ios/lbbVideoProject/UZApp/widget/*
+!ios/lbbVideoProject/UZApp/widget
 .idea
