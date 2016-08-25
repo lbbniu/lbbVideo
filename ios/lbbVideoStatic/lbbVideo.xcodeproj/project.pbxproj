@@ -11,7 +11,9 @@
 		015CC5961BEB0B8C002A6ED2 /* DWPlayerMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 015CC5901BEB0B8C002A6ED2 /* DWPlayerMenuView.m */; };
 		015CC5971BEB0B8C002A6ED2 /* DWTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 015CC5921BEB0B8C002A6ED2 /* DWTableView.m */; };
 		015CC5981BEB0B8C002A6ED2 /* DWTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 015CC5941BEB0B8C002A6ED2 /* DWTools.m */; };
-		01B2A8571D6448AD0008BA84 /* LBModuleCCVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B2A8561D6448AD0008BA84 /* LBModuleCCVideo.m */; };
+		8899B7261D6F0B2100018C32 /* DWDownloadItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8899B71E1D6F0B2100018C32 /* DWDownloadItem.m */; };
+		8899B72A1D6F0B3E00018C32 /* LBModuleCCVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8899B7291D6F0B3E00018C32 /* LBModuleCCVideo.m */; };
+		8899B72C1D6F0C9100018C32 /* libCCSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8899B72B1D6F0C9100018C32 /* libCCSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,18 +43,18 @@
 		015CC59A1BEB0BA4002A6ED2 /* UZAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZAppDelegate.h; sourceTree = "<group>"; };
 		015CC59B1BEB0BA4002A6ED2 /* UZAppUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZAppUtils.h; sourceTree = "<group>"; };
 		015CC59C1BEB0BA4002A6ED2 /* UZModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZModule.h; sourceTree = "<group>"; };
-		01B2A8551D6448AD0008BA84 /* LBModuleCCVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LBModuleCCVideo.h; path = ../../lbbVideoProject/UZApp/UZModules/LBModuleCCVideo.h; sourceTree = "<group>"; };
-		01B2A8561D6448AD0008BA84 /* LBModuleCCVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LBModuleCCVideo.m; path = ../../lbbVideoProject/UZApp/UZModules/LBModuleCCVideo.m; sourceTree = "<group>"; };
-		01B2A8781D644B940008BA84 /* DWDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWDownloader.h; sourceTree = "<group>"; };
-		01B2A8791D644B940008BA84 /* DWDownloadItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWDownloadItem.h; sourceTree = "<group>"; };
-		01B2A87A1D644B940008BA84 /* DWDownloadItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWDownloadItem.m; sourceTree = "<group>"; };
-		01B2A87B1D644B940008BA84 /* DWDrmServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWDrmServer.h; sourceTree = "<group>"; };
-		01B2A87C1D644B940008BA84 /* DWLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWLog.h; sourceTree = "<group>"; };
-		01B2A87D1D644B940008BA84 /* DWMoviePlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWMoviePlayerController.h; sourceTree = "<group>"; };
-		01B2A87E1D644B940008BA84 /* DWSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWSDK.h; sourceTree = "<group>"; };
-		01B2A87F1D644B940008BA84 /* DWUploader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWUploader.h; sourceTree = "<group>"; };
-		01B2A8801D644B940008BA84 /* DWVideoCompressController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWVideoCompressController.h; sourceTree = "<group>"; };
-		01B2A8811D644B940008BA84 /* libCCSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCCSDK.a; sourceTree = "<group>"; };
+		8899B71C1D6F0B2100018C32 /* DWDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWDownloader.h; sourceTree = "<group>"; };
+		8899B71D1D6F0B2100018C32 /* DWDownloadItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWDownloadItem.h; sourceTree = "<group>"; };
+		8899B71E1D6F0B2100018C32 /* DWDownloadItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWDownloadItem.m; sourceTree = "<group>"; };
+		8899B71F1D6F0B2100018C32 /* DWDrmServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWDrmServer.h; sourceTree = "<group>"; };
+		8899B7201D6F0B2100018C32 /* DWLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWLog.h; sourceTree = "<group>"; };
+		8899B7211D6F0B2100018C32 /* DWMoviePlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWMoviePlayerController.h; sourceTree = "<group>"; };
+		8899B7221D6F0B2100018C32 /* DWSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWSDK.h; sourceTree = "<group>"; };
+		8899B7231D6F0B2100018C32 /* DWUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWUploader.h; sourceTree = "<group>"; };
+		8899B7241D6F0B2100018C32 /* DWVideoCompressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWVideoCompressController.h; sourceTree = "<group>"; };
+		8899B7281D6F0B3E00018C32 /* LBModuleCCVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LBModuleCCVideo.h; path = ../../lbbVideoProject/UZApp/UZModules/LBModuleCCVideo.h; sourceTree = "<group>"; };
+		8899B7291D6F0B3E00018C32 /* LBModuleCCVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LBModuleCCVideo.m; path = ../../lbbVideoProject/UZApp/UZModules/LBModuleCCVideo.m; sourceTree = "<group>"; };
+		8899B72B1D6F0C9100018C32 /* libCCSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCCSDK.a; path = ../../lbbVideoStatic/lbbVideo/libCCSDK.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8899B72C1D6F0C9100018C32 /* libCCSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,9 +89,9 @@
 		015CC5681BEB0AF3002A6ED2 /* lbbVideo */ = {
 			isa = PBXGroup;
 			children = (
-				01B2A8771D644B940008BA84 /* SDK */,
-				01B2A8551D6448AD0008BA84 /* LBModuleCCVideo.h */,
-				01B2A8561D6448AD0008BA84 /* LBModuleCCVideo.m */,
+				8899B7281D6F0B3E00018C32 /* LBModuleCCVideo.h */,
+				8899B7291D6F0B3E00018C32 /* LBModuleCCVideo.m */,
+				8899B71B1D6F0B2100018C32 /* SDK */,
 				015CC5991BEB0BA4002A6ED2 /* NSDictionaryUtils.h */,
 				015CC59A1BEB0BA4002A6ED2 /* UZAppDelegate.h */,
 				015CC59B1BEB0BA4002A6ED2 /* UZAppUtils.h */,
@@ -121,19 +124,19 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		01B2A8771D644B940008BA84 /* SDK */ = {
+		8899B71B1D6F0B2100018C32 /* SDK */ = {
 			isa = PBXGroup;
 			children = (
-				01B2A8781D644B940008BA84 /* DWDownloader.h */,
-				01B2A8791D644B940008BA84 /* DWDownloadItem.h */,
-				01B2A87A1D644B940008BA84 /* DWDownloadItem.m */,
-				01B2A87B1D644B940008BA84 /* DWDrmServer.h */,
-				01B2A87C1D644B940008BA84 /* DWLog.h */,
-				01B2A87D1D644B940008BA84 /* DWMoviePlayerController.h */,
-				01B2A87E1D644B940008BA84 /* DWSDK.h */,
-				01B2A87F1D644B940008BA84 /* DWUploader.h */,
-				01B2A8801D644B940008BA84 /* DWVideoCompressController.h */,
-				01B2A8811D644B940008BA84 /* libCCSDK.a */,
+				8899B72B1D6F0C9100018C32 /* libCCSDK.a */,
+				8899B71C1D6F0B2100018C32 /* DWDownloader.h */,
+				8899B71D1D6F0B2100018C32 /* DWDownloadItem.h */,
+				8899B71E1D6F0B2100018C32 /* DWDownloadItem.m */,
+				8899B71F1D6F0B2100018C32 /* DWDrmServer.h */,
+				8899B7201D6F0B2100018C32 /* DWLog.h */,
+				8899B7211D6F0B2100018C32 /* DWMoviePlayerController.h */,
+				8899B7221D6F0B2100018C32 /* DWSDK.h */,
+				8899B7231D6F0B2100018C32 /* DWUploader.h */,
+				8899B7241D6F0B2100018C32 /* DWVideoCompressController.h */,
 			);
 			name = SDK;
 			path = ../../lbbVideoProject/SDK;
@@ -196,10 +199,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				015CC5981BEB0B8C002A6ED2 /* DWTools.m in Sources */,
+				8899B7261D6F0B2100018C32 /* DWDownloadItem.m in Sources */,
 				015CC5961BEB0B8C002A6ED2 /* DWPlayerMenuView.m in Sources */,
 				015CC5971BEB0B8C002A6ED2 /* DWTableView.m in Sources */,
 				015CC5951BEB0B8C002A6ED2 /* DWMediaSubtitle.m in Sources */,
-				01B2A8571D6448AD0008BA84 /* LBModuleCCVideo.m in Sources */,
+				8899B72A1D6F0B3E00018C32 /* LBModuleCCVideo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +245,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -277,7 +281,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

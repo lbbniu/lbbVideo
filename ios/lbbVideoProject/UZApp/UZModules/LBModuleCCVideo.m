@@ -5,7 +5,6 @@
 //  Created by 刘兵兵 on 15/11/5.
 //  Copyright (c) 2015年 APICloud. All rights reserved.
 //
-
 #import "LBModuleCCVideo.h"
 #import "UZAppDelegate.h"
 #import "NSDictionaryUtils.h"
@@ -98,6 +97,7 @@ typedef NSInteger DWPLayerScreenSizeMode;
 @property (assign, nonatomic)BOOL hiddenAll;
 @property (assign, nonatomic)NSInteger hiddenDelaySeconds;
 @property (assign, nonatomic)BOOL isfirst;
+@property (assign, nonatomic)BOOL isstop;
 @property (assign, nonatomic)NSInteger downloadedSize;
 @property (assign, nonatomic)DWDownloadItem *ditem;
 
@@ -161,7 +161,7 @@ static NSMutableArray *array;
     [self addObserverForMPMoviePlayController];
     [self removeTimer];
     [self addTimer];
-    
+
     _cbId = [paramDict integerValueForKey:@"cbId" defaultValue:-1];
     // 设置 DWMoviePlayerController 的 drmServerPort 用于drm加密视频的播放
     self.player.drmServerPort = drmServer.listenPort;  //DWAPPDELEGATE.drmServer.listenPort;  lbbniu
@@ -266,7 +266,7 @@ static NSMutableArray *array;
 //暂停播放
 - (void)stop:(NSDictionary *)paramDict{
     NSInteger  cbId = [paramDict integerValueForKey:@"cbId" defaultValue:-1];
-    self.hiddenDelaySeconds = 5;
+    self.hiddenDelaySeconds = 10;
     
     if (!self.playUrls || self.playUrls.count == 0) {
         [self loadPlayUrls];
@@ -277,7 +277,9 @@ static NSMutableArray *array;
     //if (self.player.playbackState == MPMoviePlaybackStatePlaying) {
         // 暂停播放
         image = [UIImage imageNamed:@"res_lbbVideo/play-playbutton"];
+        self.isstop = YES;
         [self.player pause];
+        [self saveNsUserDefaults];
         [self.playbackButton setImage:image forState:UIControlStateNormal];
     //}
     
@@ -306,20 +308,26 @@ static NSMutableArray *array;
 //开始播放
 - (void)start:(NSDictionary *)paramDict{
     NSInteger  cbId = [paramDict integerValueForKey:@"cbId" defaultValue:-1];
-    self.hiddenDelaySeconds = 5;
+    self.hiddenDelaySeconds = 10;
     
     if (!self.playUrls || self.playUrls.count == 0) {
         [self loadPlayUrls];
         return;
     }
-    
-    UIImage *image = nil;
-    //if (self.player.playbackState != MPMoviePlaybackStatePlaying) {
+    NSInteger type = [paramDict floatValueForKey:@"type" defaultValue:0];
+    if(type != 0){
+        [self resetViewContent];
+    }else{
+        UIImage *image = nil;
+        //if (self.player.playbackState != MPMoviePlaybackStatePlaying) {
         // 继续播放
         image = [UIImage imageNamed:@"res_lbbVideo/player-pausebutton"];
+        self.isstop = NO;
         [self.player play];
+        
         [self.playbackButton setImage:image forState:UIControlStateNormal];
-    //}
+        //}
+    }
     if (cbId >= 0) {
         NSDictionary *ret = @{@"btnType":@"start",@"ctime":[NSString stringWithFormat:@"%f",self.player.currentPlaybackTime]};
         [self sendResultEventWithCallbackId:cbId dataDict:ret errDict:nil doDelete:YES];
@@ -1033,12 +1041,16 @@ static NSMutableArray *array;
     if (self.player.playbackState == MPMoviePlaybackStatePlaying) {
         // 暂停播放
         image = [UIImage imageNamed:@"res_lbbVideo/play-playbutton"];
+        self.isstop = YES;
         [self.player pause];
+        
         
     } else {
         // 继续播放
         image = [UIImage imageNamed:@"res_lbbVideo/player-pausebutton"];
+        self.isstop = NO;
         [self.player play];
+        
     }
     
     [self.playbackButton setImage:image forState:UIControlStateNormal];
@@ -1200,6 +1212,7 @@ static NSMutableArray *array;
 {
     
     if (self.player.playbackState != MPMoviePlaybackStatePaused) {
+        //self.isstop=NO;
         [self.player pause];
     }
     self.player.currentPlaybackTime = slider.value;
@@ -1212,6 +1225,7 @@ static NSMutableArray *array;
 - (void)durationSliderDone:(UISlider *)slider
 {
     if (self.player.playbackState != MPMoviePlaybackStatePlaying) {
+        self.isstop=NO;
         [self.player play];
     }
     self.currentPlaybackTimeLabel.text = [DWTools formatSecondsToString:self.player.currentPlaybackTime];
@@ -1288,6 +1302,8 @@ static NSMutableArray *array;
         case MPMovieLoadStatePlayable://1
             // 可播放
             logdebug(@"%@ playable", self.player.originalContentURL);
+            logdebug(@"%f PlaythroughOK-------------", self.player.playableDuration);
+
             self.videoStatusLabel.hidden = YES;
             if (_videoId) {
                 if (self.player.playNum < 2) {
@@ -1300,6 +1316,8 @@ static NSMutableArray *array;
         case MPMovieLoadStatePlaythroughOK://2
             // 状态为缓冲几乎完成，可以连续播放
             logdebug(@"%@ PlaythroughOK", self.player.originalContentURL);
+            logdebug(@"%f PlaythroughOK===========", self.player.playableDuration);
+
             self.videoStatusLabel.hidden = YES;
             if (_videoId) {
                 if (self.player.playNum < 2) {
@@ -1363,6 +1381,8 @@ static NSMutableArray *array;
         case MPMoviePlaybackStatePlaying:
             [self.playbackButton setImage:[UIImage imageNamed:@"res_lbbVideo/player-pausebutton"] forState:UIControlStateNormal];
             logdebug(@"movie playing");
+            logdebug(@"%f play@@@@@@@@@@@@@", self.player.playableDuration);
+
             self.videoStatusLabel.hidden = YES;
             self.player.playaction = @"buffereddrag";
             if (_videoId) {
@@ -1376,7 +1396,8 @@ static NSMutableArray *array;
         case MPMoviePlaybackStatePaused:
             [self.playbackButton setImage:[UIImage imageNamed:@"res_lbbVideo/play-playbutton"] forState:UIControlStateNormal];
             logdebug(@"movie paused");
-            //self.videoStatusLabel.hidden = NO;
+            logdebug(@"%f pause@@@@@@@@@@@@@", self.player.playableDuration);
+            
             self.player.action++;
             self.player.playaction = @"unbuffereddrag";
             if (_videoId) {
@@ -1389,7 +1410,10 @@ static NSMutableArray *array;
                 }
                 
             }
-            //self.videoStatusLabel.text = @"暂停";
+            if(self.isstop==NO){
+                self.videoStatusLabel.hidden = NO;
+                self.videoStatusLabel.text = @"正在加载...";
+            }
             break;
             
         case MPMoviePlaybackStateInterrupted:
